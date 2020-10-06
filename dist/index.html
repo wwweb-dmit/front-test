@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1/>
+    <link rel="icon" type="image/png" href="./images/icons/favicon-32x32.png" sizes="32x32">
+    <title>Front test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="styles/app.css" rel="stylesheet"></head>
+<body>
+
+    <div id="app">
+        <header class="header">
+            <div class="header__top-panel">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-4 col-12">
+                            <div class="header__top-panel_location">
+                                <i class="icon icon__map"></i>
+                                <a class="header__top-panel_link" href="javascript:void(0);">Волгоградская область</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-8 col-12">
+                            <div class="header__top-panel_nav text-md-right text-left">
+                                <ul>
+                                    <li><a class="header__top-panel_link" href="javascript:void(0);">Тендеры</a></li>
+                                    <li><a class="header__top-panel_link" href="javascript:void(0);">База подрядчиков</a></li>
+                                    <li><a class="header__top-panel_link" href="javascript:void(0);">Другие сервисы
+                                        <i class="icon icon__arrow-down"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__main">
+                <div class="container">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col-xl-4 col-12 _catalog d-flex justify-content-between">
+                            <div class="header__logo">
+                                <img src="images/logo.svg" alt="СтройПортал">
+                            </div>
+                            <a href="javascript:void(0);" class="header__nav main-btn d-inline-flex align-items-center justify-content-center">
+                                <div class="header__nav-menu">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <p class="header__nav-title">
+                                    Каталог
+                                </p>
+                            </a>
+                        </div>
+                        <div class="col-xl-6 col-sm-6 col-12 _search">
+                            <div class="header__search d-flex">
+                                <div class="header__search-autocomplete">
+                                    <input @blur="onBlur=true" @focus="onFocus = true;onBlur = false;" v-model="autocomplete" @keyDown="keyDown"  type="text" name="autoomplete" >
+                                    <div class="header__search-autocomplete-items">
+                                        <div class="header__search-autocomplete-items_block" :class="currentFocus == index ? 'header__search-autocomplete_active' : ''" v-for="(i, index) in arr" v-if= "onFocus && i.substr(0, autocomplete.length).toUpperCase() == autocomplete.toUpperCase()" @click="autocomplete = i; onFocus = false;">
+                                            <strong>{{i.substr(0, autocomplete.length)}}</strong>{{i.substr(autocomplete.length)}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="header__search-icon">
+                                    <i class="icon icon__search"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-sm-6 col-12 d-flex justify-content-xl-between justify-content-end text-right">
+                            <a href="javascript:void(0);" class="header__list d-inline-flex">
+                                <i class="icon icon__list"></i>
+                                <div class="header__list-title">
+                                    Список
+                                </div>
+                            </a>
+                            <a href="javascript:void(0);" class="header__account d-flex align-items-center justify-content-center">
+                                <span>A</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+        new Vue({
+            data(){
+                return{
+                    currentFocus: '',
+                    autocomplete: '',
+                    onBlur: true,
+                    onFocus: false,
+                    arr: ["Anton","Anna","Angelina", "Boris", "Ben", "Tom", "Bernard", "Tima"]
+                }
+            },
+            mounted(){
+                var vm = this;
+                document.addEventListener("click", function(e){
+                    vm.onBlur ?vm.onFocus = false: false
+                });
+            },
+            methods:{
+                addActive(){
+                    var vm = this;
+                    if (!vm.array) return false;
+                    if (vm.currentFocus >= vm.array.length) vm.currentFocus = 0;
+                    if (vm.currentFocus < 0) vm.currentFocus = (vm.array.length - 1);
+                },
+                keyDown(e){
+                    var vm = this;
+                    if (e.keyCode == 40) {
+                        vm.currentFocus++;
+                        vm.addActive()
+                    } else if (e.keyCode == 38) {
+                        vm.currentFocus--;
+                        vm.addActive()
+
+                    }
+                }
+            }
+        }).$mount('#app')
+
+    </script>
+
+<script type="text/javascript" src="/scripts/vendor.js"></script><script type="text/javascript" src="/scripts/app.js"></script></body>
+</html>

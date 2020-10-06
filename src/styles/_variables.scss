@@ -1,0 +1,22 @@
+// fonts
+$OpenSansRegular: 'Open Sans', sans-serif;
+
+// bg
+@mixin cover {
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// color
+$black: #000;
+$white: #fff;
+
+$bg-light-gray: #FAFBFC;
+$bg-yellow: #FED83D;
+$bg-violet: #9B51E0;
+
+$text-light-gray: #708598;
+$text-black: #050F19;
+
+$border-light-gray: 1px solid #ECEFF1;

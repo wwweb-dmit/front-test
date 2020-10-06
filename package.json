@@ -1,0 +1,46 @@
+{
+  "name": "webpack-simple-config",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "webpack-dev-server --progress --hide-modules --mode development",
+    "build": "webpack --progress --hide-modules --mode production"
+  },
+  "author": {
+    "name": "Dmitriy Golubev",
+    "email": "wwweb.dmit@gmail.com",
+    "url": ""
+  },
+  "license": "MIT",
+  "browserslist": [
+    "last 1 major version",
+    "> 1%"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "babel-loader": "^8.0.0-beta.4",
+    "browser-sync": "^2.24.6",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^4.3.1",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^5.3.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpackbar": "^2.6.3"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.0",
+    "jquery": "^3.3.1",
+    "vue": "^2.6.12"
+  }
+}

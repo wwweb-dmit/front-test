@@ -1,0 +1,46 @@
+@media (max-width: 1200px) {
+    .header {
+        &__main {
+            & ._catalog,
+            & ._search {
+                margin-bottom: 10px;
+            }
+        }
+        &__list {
+            margin-right: 25px;
+        }
+        &__nav {
+            margin: 0;
+        }
+        &__search-icon {
+            right: 10px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+
+}
+
+@media (max-width: 767px) {
+    .header {
+        &__top {
+            &-panel {
+                &_location {
+                    margin-bottom: 10px;
+                }
+                &_nav li {
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        &__logo {
+            max-width: 160px;
+        }
+    }
+}
